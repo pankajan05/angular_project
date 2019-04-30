@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 
 @Component({
@@ -6,4 +6,9 @@ import {Component} from '@angular/core';
   templateUrl:'./header.component.html'
 })
 export class HeaderComponent {
+  @Output() feature = new EventEmitter<string>();
+
+  onClick(type: string) {
+    this.feature.emit(type);
+  }
 }
